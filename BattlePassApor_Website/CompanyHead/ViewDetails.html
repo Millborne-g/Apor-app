@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="ViewDetails-style.css">
+ 	 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"></script>
+	</head>
+	<body>
+		
+
+	<script>
+	console.log(localStorage.getItem("EventName"));
+	//document.getElementById('ID').innerHTML = localStorage.getItem("EventName");
+	</script>
+	<div class="container">
+    <!--
+		<aside>
+			<img id="EmpImage"class="personal-img" alt="personal image" src="https://www.vippng.com/png/detail/220-2201846_air-sensors-international-conference-2018-oakland-blue-event.png">
+			<h2 id="Fname"class="person-name"> Full name</h2>
+      <div id="LocAndOthers">
+        <div><span class="LocAndOthersSpans">Location: </span></div>
+        <br>
+        <div><span>Start Date: </span></div>
+        <br>
+        <div><span>End Date: </span></div>
+
+      </div>
+
+      <div id="LocAndOthersContent">
+        <div id="LocationDiv"><span id = "Loc">Location: </span></div>
+        <br>
+        <div><span id = "Sdate">Start Date</span></div>
+        <br>
+        <div><span id ="Edate">End Date</span></div>
+
+      </div>
+			<p id="position"></p>
+			
+
+			
+		</aside>
+    -->
+
+		<main>
+			<section id="first-section">
+        <h1 id="EventNameTop">Event name</h1>
+        <h2 id="EventLocTop">Event location</h2>
+        <hr>
+				<h2 class="head-section"><i class="fas fa-user-alt"></i> Event Status </h2>
+        <hr>
+        <p id="pLeft">Day: <span id="dayToday">0</span></p>
+        <p id="pRight">Scanned: <span id="scannedEmployeeNumber">0</span></p>
+        <br>
+        <br>
+        <hr>
+        <p class="AddDay"><b>Start date: </b><span id="StartDate">Loading...</span></p>
+        <hr>
+        <p class="AddDay"><b>Final date: </b><span id="EndDate">Loading...</span></p>
+
+        <button class="EditEvent" onClick="ShowModalAddUserEvent()">Edit Event</button>
+
+
+
+			</section>
+
+			
+		</main>
+	</div>
+  <div class="Top">
+    <header>Employees<em id="Total">total</em></header>
+    <input class = "SearchBar" id="search" type="text" placeholder="Search Employee..." name="search">
+  </div>
+  <div class= "Adding">
+    <div>
+      <button id="AddUser" onClick="ShowModalAddUser()">Add Employee</button>
+      <div id="myModalAddUser" class="modalAddUser">
+        <!-- Modal content -->
+        <div class="modal-contentAddUser">
+          <div class="topAddUser">
+            <span class="close" id="closeAddUser">&times;</span>
+            <p>Add Employee</p>
+          </div>
+          <hr>
+          <div class="UserRegisterForm">
+            <form id="AddUserFrom">
+              <label for='name'>Name <span id="EventWarning">(already exist)</span></label>
+              <br>
+              <input type="text" name="name" id="NameOfTheEMployee" class="AddUserForm" placeholder="Employee's name" required/>
+
+              <label for='name'>ID Number</label>
+              <br>
+              <input type="text" name="name" id="EmpIDNumber" class="AddUserForm" placeholder="Employee's ID number" required/>
+
+              <label for='address'>Home Address</label>
+              <br>
+              <input type="text" name="address" id="HomeAddressEmployee" class="AddUserForm" placeholder="Address" required>
+
+              <label for='email'>Contact Number</label>
+              <br>
+              <input type="text" name="number" id="ContactNumber" class="AddUserForm" placeholder="09*******" required>
+
+              <label for='email'>Email <span id="EmailWarning">(Invalid Email)</span> </label>
+              <br>
+              <input type="text" name="email" id="EmployeeEmailAddress" class="AddUserForm" placeholder="Email Adress" required>
+             
+
+              <!--  <br>
+              <label for='Type' id="Typelable">Type</label>
+              <br>
+              <input type="text" name="Type" id="Type" class="AddUserForm" placeholder="Type of Business" required>
+
+              <label for='email'>Email <span id="EmailWarning">(Invalid Email)</span></label>
+              <br>
+              <input type="text" name="email" id="CompanyEmailAddress" class="AddUserForm" placeholder="Email Adress" required>-->
+
+
+              <input class="ViewRemButtonsAddUser" id="SubmitAddUser" type="submit" value="Submit" onclick="SubmitValues()">
+              <br>
+              <select name="language" id="OptionExisEmp" onclick="SelectOpExEmp()">
+                <option valie="0" selected disabled>Choose Existing Employee </option>
+                <!--<option value="Java">Java</option>
+                <option value="Python">Python</option>
+                <option value="C#">C#</option>-->
+
+              </select>
+              <!--<p class="choose_emp" onclick="ShowExisEmp()">Choose Existing Employee </p>
+              <button class="AddExistingEmp">Add Existing Employee</button>-->
+
+              
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="myModalAddUserEvent" class="modalAddUserEvent">
+
+        <!-- Modal content -->
+        <div class="modal-contentAddUser">
+          <div class="topAddUser">
+            <span class="close" id="closeAddUserEvent">&times;</span>
+            <p>Update Event</p>
+          </div>
+          <hr>
+          <div class="UserRegisterFormEvent">
+            <form id="AddUserFromEvent">
+              <label for='name'>Name <span id="EventWarning">(already exist)</span></label>
+              <br>
+              <input type="text" name="name" id="NameOfTheEvent" class="AddUserForm" placeholder="Event's Name" disabled/>
+
+              <label for='address'>Event Destination</label>
+              <br>
+              <input type="text" name="address" id="EventDestination" class="AddUserForm" placeholder="Location" required>
+
+              <div id="StartDateToTravelDiv">
+              <label id = "StartDateToTravelLabel"for='StartDateToTravel'>Start Date</label>
+              <br>
+              <input type="date" name="StartDateToTravel" id="StartDateToTravel" class="AddUserForm" placeholder="Company Name" required>
+              </div>
+
+              <div id="EndDateToTravelDiv">
+              <label id="EndDateToTravelLabel" for='EndDateToTravel'>End Date</label>
+              <br>
+              <input type="date" name="EndDateToTravel" id="EndDateToTravel" class="AddUserForm" placeholder="Company Name" required>
+              </div>
+
+              <!--  <br>
+              <label for='Type' id="Typelable">Type</label>
+              <br>
+              <input type="text" name="Type" id="Type" class="AddUserForm" placeholder="Type of Business" required>
+
+              <label for='email'>Email <span id="EmailWarning">(Invalid Email)</span></label>
+              <br>
+              <input type="text" name="email" id="CompanyEmailAddress" class="AddUserForm" placeholder="Email Adress" required>-->
+
+
+              <input class="ViewRemButtonsAddUser" id="SubmitAddUser" type="submit" value="Submit" onclick="SubmitValuesEvent()">
+              
+
+              
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="myModalUpdateUser" class="modalUpdateUser">
+        <!-- Modal content -->
+        <div class="modal-contentUpdateUser">
+          <div class="topUpdateUser">
+            <span class="close" id="closeUpdateUser">&times;</span>
+            <p>Update Employee</p>
+          </div>
+          <hr>
+          <div class="UpdateUserRegisterForm">
+            <form id="AddUpdateFrom">
+              <label for='name'>Name <span id="EventWarning">(already exist)</span></label>
+              <br>
+              <input type="text" name="name" id="UpdateNameOfTheEMployee" class="AddUserForm" placeholder="Employee's name"required />
+
+              <label for='name'>ID Number</label>
+              <br>
+              <input type="text" name="name" id="UpdateEmpIDNumber" class="AddUserForm" placeholder="Employee's ID number" disabled/>
+
+              <label for='address'>Home Address</label>
+              <br>
+              <input type="text" name="address" id="UpdateHomeAddressEmployee" class="AddUserForm" placeholder="Address" required>
+
+              <label for='email'>Contact Number</label>
+              <br>
+              <input type="text" name="number" id="UpdateContactNumber" class="AddUserForm" placeholder="09*******" required>
+
+              <label for='email'>Email <span id="EmailWarning">(Invalid Email)</span> </label>
+              <br>
+              <input type="text" name="email" id="UpdateEmployeeEmailAddress" class="AddUserForm" placeholder="Email Adress" required>
+              
+
+              <!--  <br>
+              <label for='Type' id="Typelable">Type</label>
+              <br>
+              <input type="text" name="Type" id="Type" class="AddUserForm" placeholder="Type of Business" required>
+
+              <label for='email'>Email <span id="EmailWarning">(Invalid Email)</span></label>
+              <br>
+              <input type="text" name="email" id="CompanyEmailAddress" class="AddUserForm" placeholder="Email Adress" required>-->
+
+
+
+              <input class="ViewRemButtonsAddUser" id="SubmitAddUser" type="submit" value="Submit" onclick="SubmitUpdateValues()">
+
+              
+            </form>
+          </div>
+        </div>
+
+      </div>
+      <script>
+      function ShowModalAddUser(){
+        var closeAddUser = document.getElementById("closeAddUser");
+        var modal = document.getElementById("myModalAddUser");
+        modal.style.display = "block";
+        closeAddUser.onclick = function() {
+          var EventWarning = document.getElementById("EventWarning");
+
+          var NameOfTheEvent = document.getElementById("NameOfTheEvent");
+
+          //NameOfTheEvent.style.borderColor = "";
+
+
+          //EventWarning.style.display = "none";
+
+        modal.style.display = "none";
+
+      }
+        /*
+        document.getElementById('FullNameOwner').style.borderColor =  "";
+  document.getElementById('CompanyName').style.borderColor =  "";
+  document.getElementById('Type').style.borderColor =  "";
+
+  document.getElementById('CompanyLocation').style.borderColor =  "";
+  document.getElementById('CompanyEmailAddress').style.borderColor =  "";
+*/
+  var AddUserFromID = document.getElementById("AddUserFrom");
+  var inputs = AddUserFromID.getElementsByTagName('input');
+    for (var i = 0; i < inputs.length; i++) {
+      //inputs[i].style.borderBottomColor =  "";
+      if (inputs[i].value != "Submit"){
+
+        inputs[i].value="";
+
+      }
+      
+      
+    }
+
+
+      }
+
+      function ShowModalAddUserEvent(){
+        document.getElementById("NameOfTheEvent").value= localStorage.getItem("EventName");
+        document.getElementById("EventDestination").value = document.getElementById("EventLocTop").innerHTML; 
+        document.getElementById("StartDateToTravel").value = document.getElementById("StartDate").innerHTML; 
+        document.getElementById("EndDateToTravel").value = document.getElementById("EndDate").innerHTML; 
+        var closeAddUser = document.getElementById("closeAddUserEvent");
+        var modal = document.getElementById("myModalAddUserEvent");
+        modal.style.display = "block";
+        closeAddUser.onclick = function() {
+          var EventWarning = document.getElementById("EventWarning");
+
+          var NameOfTheEvent = document.getElementById("NameOfTheEvent");
+
+          //NameOfTheEvent.style.borderColor = "";
+
+
+          //EventWarning.style.display = "none";
+
+        modal.style.display = "none";
+
+      }
+        /*
+        ShowModalAddUserEvent()
+        document.getElementById('FullNameOwner').style.borderColor =  "";
+  document.getElementById('CompanyName').style.borderColor =  "";
+  document.getElementById('Type').style.borderColor =  "";
+
+  document.getElementById('CompanyLocation').style.borderColor =  "";
+  document.getElementById('CompanyEmailAddress').style.borderColor =  "";
+*/
+  var AddUserFromID = document.getElementById("AddUserFrom");
+  var inputs = AddUserFromID.getElementsByTagName('input');
+    for (var i = 0; i < inputs.length; i++) {
+      //inputs[i].style.borderBottomColor =  "";
+      if (inputs[i].value != "Submit"){
+
+        inputs[i].value="";
+
+      }
+      
+      
+    }
+
+
+      }
+
+      
+
+          
+      </script>
+
+
+    </div>
+  </div>
+
+
+
+
+  <div class="data">
+    <div class="tableM">
+    <table id="list">
+        <!--headings-->
+        <thead>
+          <tr class= "heading">
+
+            <th>Name</th>
+            <th>ID</th>
+            <th>Email</th>
+            <th>QR Code Status</th>
+          </tr>
+        </thead>
+
+
+        <tbody id="listR">
+
+
+
+        </tbody>
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+
+    <span class="close" id="closemyModal">&times;</span>
+
+    <h1 id="EventNameView"></h1>
+    <h3 id="name"></h3>
+    <div class="ViewRemButtons">
+      <form action="ViewDetails.html">
+      <input id="ViewProf" type="button" value="Update Details" onclick="UpdateEmployee()"/>
+      <input id="Remove" type="button" value="Remove" onclick="Delete()"/> 
+      </form>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="myModalLoading" class="modalLoading">
+
+  <!-- Modal content -->
+  <div class="modal-contentLoading">
+    <div class="loading loading--full-height"></div>
+    <span>Submitting...</span>
+
+  
+
+    </div>
+  </div>
+
+
+  <div id="myModalSucessfullySubmit" class="modalSucessfullySubmit">
+
+  <!-- Modal content -->
+  <div class="modal-contentSucessfullySubmit">
+    <div><span>&#x2713;</span></div>
+    <span>Save Successfully</span>
+    <br>
+    <button onclick="okClick()">OK</button>
+    
+
+
+  
+
+    </div>
+  </div>
+
+
+  <div id="myModalChooseEmp" class="modalChooseEmp">
+
+
+  <!-- Modal content -->
+  <div class="modal-contentChooseEmp">
+    <span class="close" id="closeChosUser">&times;</span>
+    <h2>Choose Employee</h2>
+    <label for="language"></label>
+        <select name="language" id="">
+          <option valie="0" selected disabled>none</option>
+          <option value="Java">Java</option>
+          <option value="Python">Python</option>
+          <option value="C#">C#</option>
+        </select>
+
+  </div>
+
+</div>
+
+
+        <script>
+
+        function addRowHandlers() {
+          var _Name = document.getElementById('name');
+          var _EventNameView = document.getElementById('EventNameView');
+          var span = document.getElementsByClassName("close")[0];
+          var modal = document.getElementById("myModal");
+          var closemyModal = document.getElementById("closemyModal");
+    var table = document.getElementById("listR");
+    var rows = table.getElementsByTagName("tr");
+    console.log("click "+rows);
+    
+    for (i = 0; i < rows.length; i++) {
+      ;
+        var currentRow = table.rows[i];
+        var createClickHandler = 
+            function(row) 
+            {
+                return function() { 
+                  //console.log("click");
+
+                                        var EventNameView = row.getElementsByTagName("td")[0];
+                                        var cell = row.getElementsByTagName("td")[1];
+                                        console.log(cell);
+                                        var name_ = cell.innerHTML;
+                                        var EventNameView_ = EventNameView.innerHTML;
+                                        modal.style.display = "block";
+                                        _Name.innerHTML = name_;
+                                        _EventNameView.innerHTML=EventNameView_;
+
+                                        //alert("id:" + id);
+                                 };
+            };
+
+        currentRow.onclick = createClickHandler(currentRow);
+    }
+    closemyModal.onclick = function() {
+  modal.style.display = "none";
+
+
+}
+
+}
+function passval(){
+  var EventNameVar = document.getElementById('EventNameView').innerHTML;
+  //console.log("hello "+IDnum);
+  localStorage.setItem("Company","Mojang2");
+  localStorage.setItem("EventName",EventNameVar);
+  return false;
+  
+}
+
+    
+    </script>
+        
+   
+
+
+
+
+    </table>
+    
+
+
+
+
+    
+
+    </div>
+
+
+    <!-- <ul id="list">
+
+    </ul>-->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+
+    <script id="MainScript">
+       // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyAtffua9t3RTkl9u_79XHq4jOneToWWJt4",
+        authDomain: "qr-code-generator-8320b.firebaseapp.com",
+        databaseURL: "https://qr-code-generator-8320b.firebaseio.com",
+        projectId: "qr-code-generator-8320b",
+        storageBucket: "qr-code-generator-8320b.appspot.com",
+        messagingSenderId: "13212405929",
+        appId: "1:13212405929:web:1b5f752dbe85a3198d19b8",
+        measurementId: "G-MBZ13F7ZNN"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+
+
+
+      readDataFromDatabase();
+      readEventDatabase();
+
+      var EventStart;
+      var EventEnd;
+
+      var counter=0;
+
+      EventNameTop.innerHTML = localStorage.getItem("EventName");
+        EventLocTop.innerHTML = localStorage.getItem("EventLoc");
+        function convert(input) {
+return moment(input, 'HH:mm:ss'). format('h:mm:ss A');
+}
+
+      function addItemsToList(NameOfTheEMployee,ContactNumber,EmployeeEmailAddress,scanned){
+
+        /*
+        var count=document.getElementById('Total');
+        var ul=document.getElementById('listR');
+        var count=document.getElementById('Total');
+        */
+
+        
+        var count=document.getElementById('Total');
+        var ul=document.getElementById('listR');
+        var _NameOfTheEMployee = document.createElement('td');
+        var _ContactNumber = document.createElement('td');
+        var _EmployeeEmailAddress = document.createElement('td');
+        var _scanned = document.createElement('td');
+
+
+        var row = document.createElement('tr');
+
+        //header.innerHTML = 'Employee-'+(++counter);
+
+        _NameOfTheEMployee.innerHTML = NameOfTheEMployee;
+        _ContactNumber.innerHTML=ContactNumber;
+        _EmployeeEmailAddress.innerHTML=EmployeeEmailAddress;
+        _scanned.innerHTML=scanned;
+
+        row.appendChild(_NameOfTheEMployee);
+        row.appendChild(_ContactNumber);
+        
+        row.appendChild(_EmployeeEmailAddress);
+        row.appendChild(_scanned);
+
+        count.innerHTML = ++counter+' total';
+        //readDataFromDatabase();
+
+        ul.appendChild(row);
+
+      }
+
+
+
+      
+      function readDataFromDatabase(){
+      var database = firebase.database().ref("Employees");
+
+    database.once("value",function(snapshot){
+            var data = snapshot.val();
+            var scannedEmployee = 0;
+
+            for(let i in data){
+              //Name,Company,LastActivity,TotalEmployee,Status
+              var databaseEvent = firebase.database().ref("Employees/"+data[i].EmpIDNumber+"/Events");
+              
+              databaseEvent.once("value",function(snapshot){
+                var dataEvent = snapshot.val();
+              var CheckEmployeeEvent = false;
+              for(let i in dataEvent){
+                console.log("Events "+dataEvent[i].EventName)
+                if(dataEvent[i].EventName ==localStorage.getItem("EventName") )
+                {
+                  CheckEmployeeEvent = true;
+
+                }
+
+
+              }
+
+              if(CheckEmployeeEvent == true){
+                var ScannedThisDay = false;
+                var scannedQr = "Pending";
+                var databaseScanned = firebase.database().ref("Employees/"+data[i].EmpIDNumber+"/ScannedListDate");
+                
+              
+              databaseScanned.once("value",function(snapshot){
+                var dataScanned = snapshot.val();
+                for(let i in dataScanned){
+
+                  var DateScanned = new Date(dataScanned[i].date);
+
+                  var today = new Date();
+
+                  var dd = String(today.getDate());
+                  var mm = String(today.getMonth()+ 1); //January is 0!
+                  var yyyy = String(today.getFullYear());
+
+                  var DateToday = new Date(yyyy+"-"+mm+"-"+dd);
+                  DateToday.setHours(8);
+                  DateToday.setMinutes(0);
+                  DateToday.setSeconds(0);
+                  
+
+                  if(DateToday.toString()==DateScanned.toString()){
+                    scannedQr = convert(dataScanned[i].time);
+                    console.log(scannedQr+" scanned....... "+DateToday+" and "+DateScanned);
+                    ScannedThisDay =true;
+                    scannedEmployee++;
+                    document.getElementById("scannedEmployeeNumber").innerHTML=scannedEmployee ;
+
+                    
+
+
+                  }
+
+
+
+                }
+
+                console.log("new    "+ScannedThisDay);
+
+                addItemsToList(data[i].NameOfTheEMployee,data[i].EmpIDNumber,data[i].EmployeeEmailAddress,scannedQr);
+                window.onload = addRowHandlers();
+            const searchInput = document.getElementById("search");
+            const rows = document.querySelectorAll("tbody tr");
+            console.log(rows);
+            searchInput.addEventListener("keyup", function (event) {
+              const q = event.target.value.toLowerCase();
+              rows.forEach((row) => {
+                row.querySelector("td").textContent.toLowerCase().startsWith(q)
+                  ? (row.style.display = "table-row")
+                  : (row.style.display = "none");
+              });
+            }); 
+
+
+
+              });
+              
+
+              }else{if(data[i].CompanyName == localStorage.getItem("Company")){
+                  var OptionExisEmp = document.getElementById("OptionExisEmp");
+                  var option = document.createElement("option");
+                  option.text = ""+data[i].NameOfTheEMployee;
+                  OptionExisEmp.add(option);
+                  }}
+
+
+              
+              });
+              /*
+              if(data[i].CompanyName == localStorage.getItem("Company")){
+              console.log("hello")
+              addItemsToList(data[i].NameOfTheEMployee,data[i].ContactNumber,data[i].EmployeeEmailAddress,data[i].scanned);
+            }*/
+
+
+            }
+            
+
+
+    });
+    
+}
+
+function readEventDatabase(){
+  var database = firebase.database().ref("Events/"+localStorage.getItem("Company")+"/"+localStorage.getItem("EventName"));
+  database.once("value",function(snapshot){
+            var data = snapshot.val();
+
+            EventStart = data.StartDateToTravel;
+            EventEnd = data.EndDateToTravel;
+
+            var today = new Date();
+
+            var dd = String(today.getDate());
+            var mm = String(today.getMonth()+ 1); //January is 0!
+            var yyyy = String(today.getFullYear());
+
+            var DateToday = new Date(yyyy+"-"+mm+"-"+dd);
+            var EndDateToTravelDate = new Date(data.EndDateToTravel);
+            var StartDateToTravel = new Date(data.StartDateToTravel);
+
+            console.log("DateToday "+DateToday+" DateEnd "+EndDateToTravelDate );
+
+            var total_Time = EndDateToTravelDate.getTime() -  DateToday.getTime();
+            var Today_days = EndDateToTravelDate.getTime() -  StartDateToTravel.getTime();
+
+            var Difference_In_Days = total_Time / (1000 * 3600 * 24);
+
+            var Today_days = Today_days / (1000 * 3600 * 24);
+
+            console.log("Days-left "+Math.round(1+Difference_In_Days));
+
+            console.log("Day "+Math.round((Today_days - (1+Difference_In_Days))+2));
+            if(Math.round((Today_days - (1+Difference_In_Days))+2)>=0){
+            document.getElementById("dayToday").innerHTML = Math.round((Today_days - (1+Difference_In_Days))+2);
+            };
+            if(Math.round(1+Difference_In_Days)==0){
+              document.getElementById("dayToday").innerHTML = 0;
+
+            }
+
+            document.getElementById("StartDate").innerHTML = data.StartDateToTravel;
+            document.getElementById("EndDate").innerHTML = data.EndDateToTravel;
+
+
+
+
+            });
+
+}
+
+function ShowExisEmp(){
+
+  document.getElementById("myModalChooseEmp").style.display="block";
+
+  document.getElementById("closeChosUser").onclick = function(){
+    document.getElementById("myModalChooseEmp").style.display = "none";
+  }
+
+
+  
+
+
+
+
+
+}
+
+
+function SelectOpExEmp(){
+  /*
+
+  if(document.getElementById("OptionExisEmp").value == "juan"){
+    console.log("hello")
+
+                document.getElementById("NameOfTheEMployee").value = "juan";
+
+              }
+
+              <label for='name'>Name <span id="EventWarning">(already exist)</span></label>
+              <br>
+              <input type="text" name="name" id="NameOfTheEMployee" class="AddUserForm" placeholder="Employee's name" required/>
+
+              <label for='name'>ID Number</label>
+              <br>
+              <input type="text" name="name" id="EmpIDNumber" class="AddUserForm" placeholder="Employee's ID number" required/>
+
+              <label for='address'>Home Address</label>
+              <br>
+              <input type="text" name="address" id="HomeAddressEmployee" class="AddUserForm" placeholder="Address" required>
+
+              <label for='email'>Contact Number</label>
+              <br>
+              <input type="text" name="number" id="ContactNumber" class="AddUserForm" placeholder="09*******" required>
+
+              <label for='email'>Email <span id="EmailWarning">(Invalid Email)</span> </label>
+              <br>
+              <input type="text" name="email" id="EmployeeEmailAddress" class="AddUserForm" placeholder="Email Adress" required>
+             
+
+
+*/
+              
+  var database = firebase.database().ref("Employees");
+
+    database.once("value",function(snapshot){
+            var data = snapshot.val();
+            var scannedEmployee = 0;
+
+            for(let i in data){
+
+              if(document.getElementById("OptionExisEmp").value == data[i].NameOfTheEMployee){
+
+                document.getElementById("NameOfTheEMployee").value = data[i].NameOfTheEMployee;
+                document.getElementById("EmpIDNumber").value = data[i].EmpIDNumber;
+                document.getElementById("HomeAddressEmployee").value = data[i].HomeAddressEmployee;
+                document.getElementById("ContactNumber").value = data[i].ContactNumber;
+                document.getElementById("EmployeeEmailAddress").value = data[i].EmployeeEmailAddress;
+                break;
+
+
+              }
+
+              
+
+
+
+            }
+          });
+    
+}
+
+function UpdateEmployee(){
+  document.getElementById("myModal").style.display = "none";
+  var name = "";
+  
+        var database = firebase.database().ref("Employees");
+        console.log(document.getElementById("EventNameView").innerHTML);
+    database.once("value",function(snapshot){
+      var found = false;
+      var name = "";
+            var data = snapshot.val();
+
+            for(let i in data){
+              //Name,Company,LastActivity,TotalEmployee,Status
+              if (document.getElementById("EventNameView").innerHTML == data[i].NameOfTheEMployee){
+                //found = true;
+                //name = data[i].NameOfTheEMployee;;
+                //console.log("found "+data[i].NameOfTheEMployee);
+                document.getElementById("UpdateNameOfTheEMployee").value = data[i].NameOfTheEMployee;
+                document.getElementById("UpdateHomeAddressEmployee").value = data[i].HomeAddressEmployee;
+                document.getElementById("UpdateContactNumber").value = data[i].ContactNumber;
+                document.getElementById("UpdateEmployeeEmailAddress").value = data[i].EmployeeEmailAddress;
+                document.getElementById("UpdateEmpIDNumber").value = data[i].EmpIDNumber;
+
+
+                document.getElementById("myModalUpdateUser").style.display = "block";
+                console.log("found")
+                break;
+
+              }
+              //console.log("hello")
+              //addItemsToList(data[i].NameOfTheEMployee,data[i].ContactNumber,data[i].EmployeeEmailAddress,data[i].scanned);
+            }
+
+            
+
+    });
+    document.getElementById("closeUpdateUser").onclick = function(){
+    document.getElementById("myModalUpdateUser").style.display = "none";
+  }
+
+
+
+
+}
+
+function SubmitUpdateValues(){
+  var AddUpdateFrom= document.getElementById("AddUpdateFrom");
+  var inputs = AddUpdateFrom.getElementsByTagName('input');
+  var FieldEmpty = false;
+    for (var i = 0; i < inputs.length; i++) {
+      if(inputs[i].hasAttribute("required")){
+         if(inputs[i].value == ""){
+          FieldEmpty = true;
+      }
+    }
+  }
+  var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  if(FieldEmpty == false){
+    if(mailformat.test(document.getElementById("UpdateEmployeeEmailAddress").value)==true){
+          var database = firebase.database().ref("Employees");
+          var password = "Password";
+    database.once("value",function(snapshot){
+            var data = snapshot.val();
+
+            for(let i in data){
+              //Name,Company,LastActivity,TotalEmployee,Status
+              if (document.getElementById("EventNameView").innerHTML == data[i].NameOfTheEMployee){
+                //found = true;
+                //name = data[i].NameOfTheEMployee;;
+                //console.log("found "+data[i].NameOfTheEMployee);
+                password = data[i].PasswordEmployee;
+                break;
+
+              }
+              //console.log("hello")
+              //addItemsToList(data[i].NameOfTheEMployee,data[i].ContactNumber,data[i].EmployeeEmailAddress,data[i].scanned);
+            }
+
+            /*
+            modalLoading.style.display = "block";
+                    //var databaseEvent = firebase.database().ref("Events/"+localStorage.getItem("Company")+"/"+localStorage.getItem("EventName"));
+                    firebase.database().ref("Events/"+localStorage.getItem("Company")+"/"+localStorage.getItem("EventName")).update({
+                      TotalEmployee:counter+1
+                    });
+                    firebase.database().ref('Employees/'+ContactNumber).set({
+                    NameOfTheEMployee:NameOfTheEMployee,
+                    HomeAddressEmployee: HomeAddressEmployee,
+                    ContactNumber: ContactNumber,
+                    EmployeeEmailAddress: EmployeeEmailAddress,
+                    CompanyName: localStorage.getItem("Company"),
+                    EventName:localStorage.getItem("EventName"),
+                    username: ContactNumber,
+                    PasswordEmployee: 'employee'+(counter+1),
+                    QRcode:NameOfTheEMployee,
+                    scanned: 'Pending'
+              }); 
+                    firebase.database().ref('Employees/'+ContactNumber+'/Events/'+localStorage.getItem("EventName")).set({
+                    EventStart:EventStart,
+                    EventEnd:EventEnd,
+                    
+                    EventName:localStorage.getItem("EventName"),
+                    EventLoc:localStorage.getItem("EventLoc")
+              }); 
+
+
+            */
+
+  document.getElementById("myModalLoading").style.display = "block";
+  firebase.database().ref('Employees/'+document.getElementById("UpdateEmpIDNumber").value).update({
+    NameOfTheEMployee:document.getElementById("UpdateNameOfTheEMployee").value,
+    HomeAddressEmployee: document.getElementById("UpdateHomeAddressEmployee").value,
+    ContactNumber: document.getElementById("UpdateContactNumber").value,
+    EmpIDNumber:document.getElementById("UpdateEmpIDNumber").value,
+    EmployeeEmailAddress: document.getElementById("UpdateEmployeeEmailAddress").value,
+    CompanyName: localStorage.getItem("Company"),
+                      //EventName:localStorage.getItem("EventName"),
+    username: document.getElementById("EmpIDNumber").value,
+
+    QRcode:document.getElementById("UpdateNameOfTheEMployee").value
+  });
+  Email.send({
+                      Host : "smtp.gmail.com",
+                      Username : "AporBattlePass@gmail.com",
+                      Password : "vkzrxvvvzgskqdcq",
+                      To : document.getElementById("UpdateEmployeeEmailAddress").value,
+                      From : "AporBattlePass@gmail.com",
+                      Subject : "Apor Battle Pass Employee User Credential (" +localStorage.getItem("Company")+")" ,
+      Body : "Hello good day! <br/> This is AporBattlePass Company Head Admin ("+localStorage.getItem("Company")+"), we sucessfully updated your account. <br/> Below is your new account details. <br/> <br/> Username: "+ document.getElementById("UpdateEmpIDNumber").value+" <br/> Password: "+password+" <br/> (You can change your password once you're login) <br/> <br/> Thank you for trusting us. " 
+
+                  }).then(
+                    message => document.getElementById("myModalSucessfullySubmit").style.display = "block"
+                  );        
+
+    });
+}
+function handleForm(event) { event.preventDefault(); } 
+              AddUpdateFrom.addEventListener('submit', handleForm);
+
+
+}
+function handleForm(event) { event.preventDefault(); } 
+              AddUpdateFrom.addEventListener('submit', handleForm);
+
+            
+}
+
+function CheckField(){
+
+
+  var FieldEmpty = false;
+  var AddUserFromID = document.getElementById("AddUserFrom");
+  var inputs = AddUserFromID.getElementsByTagName('input');
+  
+
+  
+    for (var i = 0; i < inputs.length; i++) {
+        // only validate the inputs that have the required attribute
+        //inputs[i].style.borderBottomColor =  "";
+        if(inputs[i].hasAttribute("required")){
+            if(inputs[i].value == ""){
+                FieldEmpty = true;
+                //return false;
+                ;
+            }
+        }
+        //inputs[i].style.borderBottomColor =  "";
+    }
+    
+    //return true;
+    console.log("FieldEmpty jijijhh"+FieldEmpty);
+    if(FieldEmpty == false){
+      SubmitValues();
+    }
+
+
+}
+function SubmitValuesEvent(){
+
+  var NameOfTheEvent = document.getElementById("NameOfTheEvent").value;
+  var EventDestination = document.getElementById("EventDestination").value;
+  var StartDateToTravel = document.getElementById("StartDateToTravel").value;
+  var EndDateToTravel = document.getElementById("EndDateToTravel").value;
+
+  var modalSucessfullySubmit = document.getElementById("myModalSucessfullySubmit");
+  var modalLoading = document.getElementById("myModalLoading");
+
+  var EventWarning = document.getElementById("EventWarning");
+
+  var NameOfTheEventBorder = document.getElementById("NameOfTheEvent");
+
+  var StartDateToTravelDate = new Date(document.getElementById("StartDateToTravel").value);
+  var EndDateToTravelDate = new Date(document.getElementById("EndDateToTravel").value);
+
+  var total_Time = EndDateToTravelDate.getTime() -  StartDateToTravelDate.getTime();
+
+  var Difference_In_Days = total_Time / (1000 * 3600 * 24);
+
+  console.log("total_days "+(1+Difference_In_Days));
+
+          
+
+  var FieldEmpty = false;
+  var AddUserFromID = document.getElementById("AddUserFromEvent");
+  var inputs = AddUserFromID.getElementsByTagName('input');
+
+  EventWarning.style.display = "none";
+  NameOfTheEventBorder.style.borderColor = "";
+
+
+
+  for (var i = 0; i < inputs.length; i++) {
+      if(inputs[i].hasAttribute("required")){
+         if(inputs[i].value == ""){
+          FieldEmpty = true;
+      }
+    }
+  }
+  console.log("hello " + FieldEmpty);
+
+  if(FieldEmpty == false){
+
+    var checkNameOfTheEvent = false
+
+    var databaseCheck = firebase.database().ref("Events/"+localStorage.getItem("Company"));
+
+    databaseCheck.once("value",function(snapshot){
+            var data = snapshot.val();
+
+            for(let i in data){
+              if (data[i].NameOfTheEvent==NameOfTheEvent){
+                checkNameOfTheEvent = true;
+                break;
+
+              }
+            }
+
+            if(checkNameOfTheEvent == true){
+  
+
+              firebase.database().ref('Destinations/'+NameOfTheEvent).set({
+                  EventDestination: EventDestination
+                  
+            });
+                  firebase.database().ref('Events/'+localStorage.getItem("Company")+'/'+NameOfTheEvent).set({
+                  NameOfTheEvent:NameOfTheEvent,
+                  EventDestination: EventDestination,
+                  StartDateToTravel: StartDateToTravel,
+                  EndDateToTravel: EndDateToTravel,
+                  CompanyName:localStorage.getItem("Company"),
+                  TotalEmployee: 0,
+                  total_days:(1+Difference_In_Days)
+            }).then(
+            message => modalSucessfullySubmit.style.display = "block"
+
+                                
+                                //location.reload()
+            );
+
+
+            }
+            else{
+              NameOfTheEventBorder.style.borderColor = "#d64242";
+              EventWarning.style.display = "block";
+              console.log("Already in the list");
+              function handleForm(event) { event.preventDefault(); } 
+              AddUserFromID.addEventListener('submit', handleForm);
+
+            }
+          });
+
+
+    //modalSucessfullySubmit.style.display = "block";
+    //location.reload();
+    function handleForm(event) { event.preventDefault(); } 
+  AddUserFromID.addEventListener('submit', handleForm);
+
+  }
+
+  function handleForm(event) { event.preventDefault(); } 
+  AddUserFromID.addEventListener('submit', handleForm);
+  
+  
+
+         
+      }
+
+function SubmitValues(){
+
+
+  var NameOfTheEMployee = document.getElementById("NameOfTheEMployee").value;
+  var EmpIDNumber = document.getElementById("EmpIDNumber").value;
+  var HomeAddressEmployee = document.getElementById("HomeAddressEmployee").value;
+  var ContactNumber = document.getElementById("ContactNumber").value;
+  var EmployeeEmailAddress = document.getElementById("EmployeeEmailAddress").value;
+
+  var modalSucessfullySubmit = document.getElementById("myModalSucessfullySubmit");
+  var modalLoading = document.getElementById("myModalLoading");
+
+  var EventWarning = document.getElementById("EventWarning");
+  var NameOfTheEventBorder = document.getElementById("NameOfTheEMployee");
+
+  var spanEmail = document.getElementById("EmailWarning");
+
+  
+
+
+  var EmailTextBox = document.getElementById("EmployeeEmailAddress");
+  
+
+  var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+  var FieldEmpty = false;
+  var AddUserFromID = document.getElementById("AddUserFrom");
+  var inputs = AddUserFromID.getElementsByTagName('input');
+
+  EventWarning.style.display = "none";
+  NameOfTheEventBorder.style.borderColor = "";
+  EmailTextBox.style.borderColor  = "";
+  spanEmail.style.display="none";
+
+  var EmpIDNumberAlreadyExist = false;
+
+  for (var i = 0; i < inputs.length; i++) {
+      if(inputs[i].hasAttribute("required")){
+         if(inputs[i].value == ""){
+          FieldEmpty = true;
+      }
+    }
+  }
+
+  console.log(FieldEmpty);
+  function handleForm(event) { event.preventDefault(); } 
+  AddUserFromID.addEventListener('submit', handleForm);
+
+  if(FieldEmpty == false){
+    var checkNameOfTheEmployee = false
+    var checkEventOfTheEmployee = false
+
+    var databaseCheck = firebase.database().ref("Employees");
+    var databaseCheckEvent = firebase.database().ref("Employees/"+EmpIDNumber+"/Events");
+
+    databaseCheck.once("value",function(snapshot){
+            var data = snapshot.val();
+
+            for(let i in data){
+              if (data[i].NameOfTheEMployee==NameOfTheEMployee){
+                checkNameOfTheEmployee = true;
+              }
+              if (data[i].EmpIDNumber==EmpIDNumber){
+                EmpIDNumberAlreadyExist = true;
+                break;
+
+              }
+            }
+            databaseCheckEvent.once("value",function(snapshot){
+              var data2 = snapshot.val();
+
+            for(let i in data2){
+              console.log("From database Event "+data2[i].EventName);
+              if (data2[i].EventName==localStorage.getItem("EventName")){
+                checkEventOfTheEmployee = true;
+                break;
+
+              }
+            }
+            console.log(checkNameOfTheEmployee+ " " + checkEventOfTheEmployee+ " "+EmpIDNumberAlreadyExist);
+            if(checkNameOfTheEmployee == true && checkEventOfTheEmployee == false && EmpIDNumberAlreadyExist == true){
+              modalLoading.style.display = "block";
+              firebase.database().ref("Events/"+localStorage.getItem("Company")+"/"+localStorage.getItem("EventName")).update({
+                      TotalEmployee:counter+1
+                    });
+                    firebase.database().ref('Employees/'+EmpIDNumber+'/Events').child(localStorage.getItem("EventName")).set({
+                    EventStart:EventStart,
+                    EventEnd:EventEnd,
+                    
+                    EventName:localStorage.getItem("EventName"),
+                    EventLoc:localStorage.getItem("EventLoc")
+                  }).then(
+                    message => modalSucessfullySubmit.style.display = "block"
+                    
+                    //location.reload()
+                  );
+
+            };
+
+            if(checkNameOfTheEmployee == false && checkEventOfTheEmployee == false){
+              //console.log("mailformat.test(EmployeeEmailAddress "+mailformat.test(EmployeeEmailAddress));
+              
+                if(mailformat.test(EmployeeEmailAddress)==true){
+                    modalLoading.style.display = "block";
+                    //var databaseEvent = firebase.database().ref("Events/"+localStorage.getItem("Company")+"/"+localStorage.getItem("EventName"));
+                    firebase.database().ref("Events/"+localStorage.getItem("Company")+"/"+localStorage.getItem("EventName")).update({
+                      TotalEmployee:counter+1
+                    });
+                    firebase.database().ref('Employees/'+EmpIDNumber).set({
+                    NameOfTheEMployee:NameOfTheEMployee,
+                    HomeAddressEmployee: HomeAddressEmployee,
+                    ContactNumber: ContactNumber,
+                    EmployeeEmailAddress: EmployeeEmailAddress,
+                    CompanyName: localStorage.getItem("Company"),
+                    EmpIDNumber: EmpIDNumber,
+                    ImageProf: "https://png.pngitem.com/pimgs/s/24-248594_user-profile-successful-check-verified-verified-user-icon.png",
+                    //EventName:localStorage.getItem("EventName"),
+                    username: EmpIDNumber,
+                    PasswordEmployee: 'employee'+(counter+1),
+                    QRcode:NameOfTheEMployee,
+                    scanned: 0
+              }); 
+                    if(checkNameOfTheEmployee == false){
+
+                    firebase.database().ref('Employees/'+EmpIDNumber+'/Events').child(localStorage.getItem("EventName")).set({
+                    EventStart:EventStart,
+                    EventEnd:EventEnd,
+                    
+                    EventName:localStorage.getItem("EventName"),
+                    EventLoc:localStorage.getItem("EventLoc")
+              }); }
+
+                    Email.send({
+                      Host : "smtp.gmail.com",
+                      Username : "AporBattlePass@gmail.com",
+                      Password : "vkzrxvvvzgskqdcq",
+                      To : EmployeeEmailAddress,
+                      From : "AporBattlePass@gmail.com",
+                      Subject : "Apor Battle Pass Employee User Credential (" +localStorage.getItem("Company")+")" ,
+      Body : "Hello good day! <br/> This is AporBattlePass Company Head Admin ("+localStorage.getItem("Company")+"), we sucessfully registered an event to your account. Please check it by using our Application. <br/> Below are your account details. <br/> <br/> Username: "+ EmpIDNumber+" <br/> Password: employee"+(counter+1)+" <br/> (You can change your password once you're login) <br/> <br/> Thank you for trusting us. " 
+
+                  }).then(
+                    message => modalSucessfullySubmit.style.display = "block"
+                    
+                    //location.reload()
+                  );
+              console.log("Successfully");
+              function handleForm(event) { event.preventDefault(); } 
+              AddUserFromID.addEventListener('submit', handleForm);
+              }
+              else{
+                EmailTextBox.style.borderColor  = "#d64242";
+
+                  spanEmail.style.display="block";
+                    //modal.style.display = "none";
+                    function handleForm(event) { event.preventDefault(); } 
+                AddUserFromID.addEventListener('submit', handleForm);
+              }
+
+            }
+            else{
+              document.getElementById("EmpIDNumber").value="";
+              NameOfTheEventBorder.style.borderColor = "#d64242";
+              EventWarning.style.display = "block";
+              console.log("Already in the list");
+              function handleForm(event) { event.preventDefault(); } 
+              AddUserFromID.addEventListener('submit', handleForm);
+
+            }
+            });
+          });
+  }
+
+/*
+  var modalSucessfullySubmit = document.getElementById("myModalSucessfullySubmit");
+  var modalLoading = document.getElementById("myModalLoading");
+
+  var EventWarning = document.getElementById("EventWarning");
+
+  var NameOfTheEventBorder = document.getElementById("NameOfTheEvent");
+
+          
+
+  var FieldEmpty = false;
+  var AddUserFromID = document.getElementById("AddUserFrom");
+  var inputs = AddUserFromID.getElementsByTagName('input');
+
+  EventWarning.style.display = "none";
+  NameOfTheEventBorder.style.borderColor = "";
+
+  console.log("hello");
+
+  for (var i = 0; i < inputs.length; i++) {
+      if(inputs[i].hasAttribute("required")){
+         if(inputs[i].value == ""){
+          FieldEmpty = true;
+      }
+    }
+  }
+
+  if(FieldEmpty == false){
+    var checkNameOfTheEvent = false
+
+    var databaseCheck = firebase.database().ref("Employees");
+
+    databaseCheck.once("value",function(snapshot){
+            var data = snapshot.val();
+
+            for(let i in data){
+              if (data[i].NameOfTheEMployee==NameOfTheEMployee){
+                checkNameOfTheEvent = true;
+                break;
+
+              }
+            }
+
+            if(checkNameOfTheEvent == false){
+                  firebase.database().ref('Employees/'+NameOfTheEMployee).set({
+                  NameOfTheEMployee:NameOfTheEMployee,
+                  HomeAddressEmployee: HomeAddressEmployee,
+                  ContactNumber: ContactNumber,
+                  EmployeeEmailAddress: EmployeeEmailAddress,
+                  username: EmployeeEmailAddress,
+                  PasswordEmployee: 'Company'+1
+            }).then(
+            message => modalSucessfullySubmit.style.display = "block"
+
+                                
+                                //location.reload()
+            );
+            console.log("Successfully");
+            function handleForm(event) { event.preventDefault(); } 
+  AddUserFromID.addEventListener('submit', handleForm);
+
+            }
+            else{
+              NameOfTheEventBorder.style.borderColor = "#d64242";
+              EventWarning.style.display = "block";
+              console.log("Already in the list");
+              function handleForm(event) { event.preventDefault(); } 
+              AddUserFromID.addEventListener('submit', handleForm);
+
+            }
+          });
+
+
+    //modalSucessfullySubmit.style.display = "block";
+    //location.reload();
+    function handleForm(event) { event.preventDefault(); } 
+  AddUserFromID.addEventListener('submit', handleForm);
+
+  }
+
+  function handleForm(event) { event.preventDefault(); } 
+  AddUserFromID.addEventListener('submit', handleForm);
+  
+  
+
+         */
+      }
+
+  function Delete(){
+    var EventNameView =document.getElementById('name').innerHTML;
+    firebase.database().ref('Employees/'+EventNameView+'/Events/'+localStorage.getItem("EventName")).remove();
+    firebase.database().ref("Events/"+localStorage.getItem("Company")+"/"+localStorage.getItem("EventName")).update({
+                      TotalEmployee:counter-1
+              });
+    location.reload();
+
+  }
+
+
+  function okClick(){
+    location.reload();
+    
+  }
+
+
+
+
+
+
+
+      
+      
+      
+     
+
+
+
+    </script>
+
+
+    
+  </div>
+
+
+
+
+</html>

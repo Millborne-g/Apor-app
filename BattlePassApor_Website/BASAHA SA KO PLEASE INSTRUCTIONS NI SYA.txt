@@ -1,0 +1,65 @@
+Website
+1. Sa pag start sa system kay unahon ang pag run ang logIn.html
+
+Username: Admin
+Password: Admin123
+Login as: Admin
+
+Dapat naka login as Admin para maka sulod mo as Admin
+
+2. Pag nana mo sa Admin na interface ang buhaton ninyo kay mag add mog company
+katong naay button saibabaw sa table. Make sure dayon na inyong ibutang na 
+email kay ang email ninyo or kanang email na active para ma recieve ninyo ang 
+username ug password sa company.
+
+3. Pag mana na na add na ninyo ang company. Balik mo sa logIn.html kato dayon
+inyong nadawatan na email sa apor kato inyong e log in 
+
+Login as: Company Head
+
+Dapat naka inani para as a company head mo mag login
+
+4.Pag naka login namo as a Company head sa side bar (sa left side) sa kilid 
+kay naay Events ug Employee. 
+
+	-Pag muadto ka sa event kay pwede ka mag add sa event. 
+
+	-Pag naka add naka kay pag e click nimo ang event sa table kay naay 
+	mu tunga na View Details ug Remove pag click nimo sa view details 
+	kay dadto ka maka add sa imong Employee
+
+	-Pag mag add kag employee make sure dayon na inyong ibutang na email kay 
+	ang email ninyo or kanang email na active para ma recieve ninyo ang 
+	username ug password sa Employee.
+
+	-Tas e open ninyo ang application try dayon ug log in ang inyong gi 
+	register na employee
+
+5. Pag back ninyo sa View details sa event sa kilid tung side bar (sa left side) 
+kay ubos sa event kay naay employees naka butang i click to sya
+	
+	-Pwede sad mag add ug Employee dadto pero wala pa syay Event.
+
+	-Pag mana ka add dadto. Para ma butngan syag Event kay adto balik sa 
+	Event pwede ka mag add ug event balik or e add nimo sya dadto sa event 
+	na imong nabuhat pinakauna sae ra gyapon tuploka ang view details
+	
+	-Pag naka view details naka pag click nimo sa add employee kay naay button 
+	sa ubos na Choose Existing Employee makita dayon tung ngalan sa Employee na
+	wla pay event.
+
+
+Application
+
+1.Sa Login sa application is gamita tung na recieve ninyo na email as an employee
+para maka log in mo sa inyong account
+
+2. Tung Forgot password kay design ra sya HAHAHA wala pa nako na edit
+
+2.Sa scanner kay ma access sya thorugh sa Admin so
+
+Username: Admin
+Password: Admin123
+
+if naka log in namo maka scan namo ug qr code sa employee
+

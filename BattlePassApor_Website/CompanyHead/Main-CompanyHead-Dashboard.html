@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- <title>Sider Menu Bar CSS</title> -->
+    <link rel="stylesheet" href="Main-CompanyHead-Dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+  </head>
+
+  <body>
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+    <header><img src="AdminPic.jpg" alt="Admin"> 
+      <br>
+      <span id="Company_Head_Name">Admin</span></header>
+  <ul>
+<li class="active"><a href="#"><i class="fas fa-qrcode"></i>Dashboard</a></li>
+<li><a href="Main-CompanyHead.html"><i class="fas fa-calendar-week"></i>Events</a></li>
+<li><a href="Main-CompanyHead-Employees.html"><i class="fas fa-user-alt"></i>Employees</a></li>
+<li><a href="#"><i class="fas fa-stream"></i>Overview</a></li>
+<li><a href="#"><i class="far fa-question-circle"></i>About</a></li>
+<!--<li><a href="#"><i class="fas fa-link"></i>Shortcuts</a></li>-->
+<!--<li><a href="#"><i class="fas fa-stream"></i>Overview</a></li>
+
+<li><a href="#"><i class="far fa-question-circle"></i>About</a></li>
+<li><a href="#"><i class="fas fa-sliders-h"></i>Services</a></li>
+<li><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
+-->
+<script>
+
+   
+      $('li').click(function(){
+        $(this).addClass("active").siblings().removeClass("active");
+      });
+    </script>
+</ul>
+
+
+</div>
+<section>
+  <div class="Top">
+    <p>Hello,<span id="NameComanyHead">User!</span></p>
+    <span>Welcome back to Travel Pass </span>
+    <img src="CompanyHead_icon.png">
+  </div>
+  <div class="container">
+      <div class="calendar">
+        <div class="month">
+          <i class="fas fa-angle-left prev"></i>
+          <div class="date">
+            <h1></h1>
+            <p></p>
+          </div>
+          <i class="fas fa-angle-right next"></i>
+        </div>
+        <div class="weekdays">
+          <div>Sun</div>
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+        </div>
+        <div class="days"></div>
+      </div>
+    </div>
+  <div class="TopTop">
+  <div class="Top1">
+    <header>Events <br><em id="Total1">0</em> <i class="fas fa-calendar-week"></i> </header>
+
+  </div>
+<div class="Top2">
+    <header>Employees<br><em id="Total2">0</em> <i class="fas fa-user-alt"></i></header>
+  </div>
+  </div>
+
+  
+
+    <script>
+    const date = new Date();
+
+const renderCalendar = () => {
+  date.setDate(1);
+
+  const monthDays = document.querySelector(".days");
+
+  const lastDay = new Date(
+    date.getFullYear(),
+    date.getMonth() + 1,
+    0
+  ).getDate();
+
+  const prevLastDay = new Date(
+    date.getFullYear(),
+    date.getMonth(),
+    0
+  ).getDate();
+
+  const firstDayIndex = date.getDay();
+
+  const lastDayIndex = new Date(
+    date.getFullYear(),
+    date.getMonth() + 1,
+    0
+  ).getDay();
+
+  const nextDays = 7 - lastDayIndex - 1;
+
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  document.querySelector(".date h1").innerHTML = months[date.getMonth()];
+
+  document.querySelector(".date p").innerHTML = new Date().toDateString();
+
+  let days = "";
+
+  for (let x = firstDayIndex; x > 0; x--) {
+    days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
+  }
+
+  for (let i = 1; i <= lastDay; i++) {
+    if (
+      i === new Date().getDate() &&
+      date.getMonth() === new Date().getMonth()
+    ) {
+      days += `<div class="today">${i}</div>`;
+    } else {
+      days += `<div>${i}</div>`;
+    }
+  }
+
+  for (let j = 1; j <= nextDays; j++) {
+    days += `<div class="next-date">${j}</div>`;
+    monthDays.innerHTML = days;
+  }
+};
+
+document.querySelector(".prev").addEventListener("click", () => {
+  date.setMonth(date.getMonth() - 1);
+  renderCalendar();
+});
+
+document.querySelector(".next").addEventListener("click", () => {
+  date.setMonth(date.getMonth() + 1);
+  renderCalendar();
+});
+
+renderCalendar();
+
+
+    </script>
+
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+
+    <script id="MainScript">
+       // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyAtffua9t3RTkl9u_79XHq4jOneToWWJt4",
+        authDomain: "qr-code-generator-8320b.firebaseapp.com",
+        databaseURL: "https://qr-code-generator-8320b.firebaseio.com",
+        projectId: "qr-code-generator-8320b",
+        storageBucket: "qr-code-generator-8320b.appspot.com",
+        messagingSenderId: "13212405929",
+        appId: "1:13212405929:web:1b5f752dbe85a3198d19b8",
+        measurementId: "G-MBZ13F7ZNN"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+
+
+
+      readDataFromDatabase();
+
+      var counter=0;
+      var counter2=0;
+
+
+      function readDataFromDatabase(){
+      var database = firebase.database().ref("Events/"+localStorage.getItem("Company"));
+      document.getElementById("Company_Head_Name").innerHTML= localStorage.getItem("CompanyHeadName");
+      
+      var str = localStorage.getItem("CompanyHeadName");
+      var res = ""+str.split(" ");
+      var arrname = res.split(",");
+      console.log("res "+arrname[0] );
+      document.getElementById("NameComanyHead").innerHTML= arrname[0] +" !";
+
+
+    database.once("value",function(snapshot){
+            var data = snapshot.val();
+
+            for(let i in data){
+              //Name,Company,LastActivity,TotalEmployee,Status
+              Total1.innerHTML = ++counter;
+            }
+
+
+    });
+
+    var database = firebase.database().ref("Employees");
+      
+
+    database.once("value",function(snapshot){
+            var data = snapshot.val();
+            console.log("Emp "+data);
+
+            for(let i in data){
+              
+              
+
+              
+              if(data[i].CompanyName==localStorage.getItem("Company")){
+                Total2.innerHTML = ++counter2;
+                
+
+                
+
+              }
+
+
+
+
+                //});
+
+              
+            }
+
+
+    });
+}
+
+
+
+      </script>
+
+
+</section>
+
+
+
+
+  </body>
+  
+    
+  <script>
+  function changeLanguage(language) {
+                    var element = document.getElementById("url");
+                    element.value = language;
+                    element.innerHTML = language;
+                }
+
+                function showDropdown() {
+                    document.getElementById("myDropdown").classList.toggle("show");
+
+                    console.log("hello");
+                }
+
+                // Close the dropdown if the user clicks outside of it
+                window.onclick = function(event) {
+                    if (!event.target.matches('.dropbtn')) {
+                        var dropdowns = document.getElementsByClassName("dropdown-content");
+                        var i;
+                        for (i = 0; i < dropdowns.length; i++) {
+                            var openDropdown = dropdowns[i];
+                            if (openDropdown.classList.contains('show')) {
+                                openDropdown.classList.remove('show');
+                            }
+                        }
+                    }
+                }
+ 
+  </script>
+
+ 
+  
+</html>
+

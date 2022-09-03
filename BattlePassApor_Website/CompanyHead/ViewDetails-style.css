@@ -1,0 +1,1461 @@
+* {
+	margin:0;
+	padding:0px;
+	box-sizing: border-box;
+}
+
+
+/*body {
+	padding: 50px 0px 0px 0px;
+}*/
+hr {
+	margin: auto;
+	width: 90%;
+	color: grey;
+}
+
+.container {
+	/*padding: 50px 0px 0px 0px;*/
+	margin: 50px auto;
+	display: flex;
+	justify-content: flex-start;
+	width: 90%;
+	
+
+}
+
+aside, main section {
+	background-color: white;
+	border: 1px solid grey;
+	box-shadow: 0px 0px 8px 8px #c9c9c9;
+	flex: 3;
+	/*height: auto;*/
+	margin-right: 15px;
+
+}
+
+*{
+	font-family: sans-serif;
+}
+main {
+	flex: 7;
+
+}
+
+
+main #first-section {
+	margin-bottom: 50px;
+	padding-bottom: 50px;
+	height: 100%;
+}
+main #first-section i {
+  color: #1d1f30;
+}
+main #first-section #pLeft {
+  font-size: 70px;
+  margin: 0 130px;
+  float: left;
+}
+main #first-section #pRight {
+  font-size: 70px;
+  margin: 0 130px;
+  float: right;
+  padding-bottom: 20px;
+  /*margin-top: -110px;*/
+}
+main #first-section .AddDay{
+  font-size: 20px;
+  margin: 0 30px;
+  padding-bottom: 20px;
+  /*margin-top: -110px;*/
+}
+
+main #first-section .EditEvent{
+  font-size: 20px;
+  margin: 0 30px;
+  width: 160px;
+  padding: 10px;
+  font-size: 15px;
+  position: absolute;
+  margin-top: 45px;
+  /*margin-top: -110px;*/
+}
+aside {
+	padding-top: 50px;
+	text-align: center;
+	padding-bottom: 50px;
+	height: 60%;
+}
+
+aside #LocAndOthers{
+	margin: 20px 5px 20px 40px;
+	float: left;
+}
+
+#LocAndOthers .LocAndOthersSpans{
+	padding-bottom: 30px;
+
+}
+
+
+aside #LocAndOthersContent{
+	overflow: hidden;
+	margin: 20px 40px 20px 5px;
+	float: right;
+	text-align: left;
+}
+
+aside #LocAndOthersContent #LocationDiv{
+
+	white-space: initial;
+}
+
+#Status {
+	background-color: black;
+	padding: 30px;
+	margin-top: -50px;
+	color: white;
+	margin-bottom: 20px;
+}
+
+.personal-img {
+	width: 250px;
+    height: 250px;
+  	border-radius: 100%;
+}
+
+.person-name {
+	color: #5c5c5c ;
+	font-size: 2vw;
+	margin: 5px;
+	font-weight: bold;
+	margin-top: 30px;
+}
+aside p{
+	
+	font-size: 20px;
+	color: #009688;
+}
+
+.personal-details, .details-list {
+	font-size: 1.2vw;
+	padding: 25px;
+	list-style: none;
+	color:#009688;
+}
+
+.details-list {
+	padding-top: 0px;
+}
+
+.personal-details li{
+	margin: 15px 0px;
+	/*letter-spacing: .5px;*/
+}
+
+.personal-details li i {
+	margin-right: 10px;
+
+}
+
+.details-list li {
+	margin: 15px 0px;
+}
+
+.head-section {
+	color: #5c5c5c;
+	padding:  5px 30px;
+	margin: 15px 0px;
+	font-size: 1.6vw;
+}
+
+.head-section i{
+	color: #009688;
+}
+
+.progress-back {
+	border: 1px solid grey;
+	border-radius: 15px;
+	height: 1.5em;
+	margin-top: 15px;
+	text-align: justify;
+}
+
+.progress-text {
+	color: white;
+	text-align: center;
+}
+
+
+.progress {
+	height: 100%;
+	border-radius: 15px;
+	background-color: #009688;
+}
+
+.p-100 {width: 100%;}
+.p-95 {width: 95%;}
+.p-90 {width: 90%;}
+.p-85 {width: 85%;}
+.p-75 {width: 75%;}
+.p-30 {width: 30%;}
+
+#EventNameTop, #EventLocTop{
+  color: #5c5c5c;
+  margin: 25px 0px;
+  text-align: center;
+
+}
+
+#EventNameTop{
+  font-size: 3.2vw;
+}
+
+.data-details {
+	width: 90%;
+	margin: auto;
+	padding: 10px 0px;
+}
+
+.data-details h3{
+	font-size: 1.2vw;
+	color: #5c5c5c;
+	margin: 10px 0px;
+}
+.Tittle {
+	font-weight: bold;
+	float: left;
+	width: 40%;
+}
+.Tittle2{
+	width: 60%;
+	float: right;
+}
+
+.data-details > span{
+	color: #009688;
+	margin: 15px 0px;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+.green-span {
+	background-color:#009688;
+	padding: 5px;
+	border-radius: 5px;
+	font-weight: normal;
+	color: white;
+}
+
+.fa-calendar-alt {
+	margin: 0px 10px;
+}
+
+.data-details p {
+	color: #5c5c5c;
+	margin: 10px 0px;
+	letter-spacing: .5px;
+	line-height: 1.6;
+}
+
+footer {
+	margin-top: 60px; 
+	width: 100%;
+	height: 150px;
+	background-color: #009688;
+	text-align: center;
+	padding: 20px 0px;
+	color: white;
+	font-weight: bold;
+	line-height: 2;
+}
+
+footer a {
+	color: white;
+	text-decoration: none;
+	font-size: 1.2vw;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
+*{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  background-image: url("https://img.freepik.com/free-vector/white-abstract-background_23-2148809723.jpg?size=626&ext=jpg");
+  background-size: cover;
+}
+.sidebar {
+  position: fixed;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: #042331; 
+  transition: all .5s ease;
+}
+.sidebar header {
+  font-size: 22px;
+  color: white;
+  line-height: 70px;
+  text-align: center;
+  background: #063146;
+  user-select: none;
+}
+.sidebar ul a{
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  font-size: 20px;
+  color: white;
+  padding-left: 40px;
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+  border-top: 1px solid rgba(255,255,255,.1);
+  transition: .4s;
+}
+ul li:hover a{
+  padding-left: 50px;
+}
+.sidebar ul a i{
+  margin-right: 16px;
+}
+#check{
+  display: none;
+}
+
+label #btn,label #cancel{
+  position: absolute;
+  background: #042331;
+  border-radius: 3px;
+  cursor: pointer;
+}
+label #btn{
+  position: fixed;
+  left: 40px;
+  top: 25px;
+  font-size: 35px;
+  color: white;
+  padding: 6px 12px;
+  transition: all .5s;
+}
+label #cancel{
+  position: fixed;
+  z-index: 1111;
+  left: -195px;
+  top: 17px;
+  font-size: 30px;
+  color: #0a5275;
+  padding: 4px 9px;
+  transition: all .5s ease;
+}
+#check:checked ~ .sidebar{
+  left: 0;
+}
+#check:checked ~ label #btn{
+  left: 250px;
+  opacity: 0;
+  pointer-events: none;
+}
+#check:checked ~ label #cancel{
+  left: 195px;
+}
+#check:checked ~ section{
+  margin-left: 250px;
+}
+section{
+  background: url() no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  transition: all .5s;
+}
+
+
+.sidebar ul li.active a{
+  padding-left: 50px;
+  border-radius:50px 0 0 50px; 
+  background-color: white;
+  color: black;
+}
+
+.sidebar ul li.active2 a{
+  padding-left: 50px;
+  border-radius:50px 0 0 50px; 
+  background-color: white;
+  color: black;
+}
+
+
+.Top {
+
+  margin: 40px 70px;
+  padding: 30px;
+  border-collapse: collapse;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  
+}
+.Top header{
+  float: left;
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: bold;
+
+
+}
+
+.Top em{
+  color: gray;
+  margin-left: 5px;
+  font-family: Arial;
+  font-size: 15px; 
+  font-weight: lighter;
+
+
+}
+
+.SearchBar{
+   float: right;
+   width: 50px;
+   height: 40px;
+}
+
+
+.Top input{
+  border-collapse: collapse;
+  width: 400px;
+  margin: 0 10px;
+  padding: 0 10px;
+  font-size: 20px;
+
+ }
+
+ .Adding{
+  margin: -55px 70px;
+  padding: 5px;
+  overflow: hidden;
+  margin-top: 20px;
+
+ }
+
+.Adding div{
+
+
+}
+.Adding button{
+  
+  display: block; 
+  padding: 10px 50px;
+  cursor: pointer;
+  float: right;
+  margin-right: 20px;
+  
+
+ }
+
+
+
+
+.data {
+  table-layout: fixed;
+  
+  margin: 60px 70px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  margin-top: 5%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  background-color: white;
+}
+
+#list {
+  border-collapse: collapse;
+  font-size: 15px;
+  min-width: 100%;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  text-align: left
+
+
+}
+
+.heading th{
+  padding: 30px 40px;
+  overflow: hidden;
+  table-layout: fixed;
+}
+
+#list td {
+  font-size: 11.7px;
+  padding: 30px 40px;
+  overflow: hidden;
+
+}
+
+#list tbody tr {
+  cursor: pointer;
+}
+
+#list tbody tr:hover {
+  background-color: #AAABAD;
+}
+
+#list tr {
+  border-bottom: 1px solid #dddddd;
+}
+#list tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+#list tr:last-of-type {
+  border-bottom: 1px solid #1e1e1e;
+}
+
+table {
+  table-layout: fixed;
+}
+
+#list button{
+  font-size: 30px;
+  font-weight: bold;
+  margin: 15px;
+  padding: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+
+/*.modal-contentChooseEmp*/
+
+
+.modalChooseEmp {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-contentChooseEmp {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 35%;
+  height: 33%;
+  color: black;
+}
+
+.modal-contentChooseEmp h1{
+  text-align: center;
+  margin-top: 10px;
+}
+.modal-contentChooseEmp h3{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.modal-contentChooseEmp .ViewRemButtons{
+  margin-top:20px; 
+  color: black;
+  text-decoration: none;
+  text-decoration: none;
+  padding: 20px 50px;
+  display: block;
+  text-align: center;
+}
+
+
+#ViewProf, #Remove{
+  border: 1px solid #888;
+  color: black;
+  text-decoration: none;
+  margin: 5px;
+  padding: 10px 30px;
+  display: inline;  
+  background-color: white;
+  cursor: pointer;
+
+}
+#ViewProf:hover, #Remove:hover{
+  background-color: black;
+  color: white;
+
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.modal-contentChooseEmp .data {
+  table-layout: fixed;
+  
+  margin: 60px 70px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  margin-top: 5%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  background-color: white;
+}
+
+.modal-contentChooseEmp #list {
+  border-collapse: collapse;
+  font-size: 15px;
+  min-width: 100%;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+
+  
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  text-align: left
+
+
+}
+
+.modal-contentChooseEmp .heading th{
+  padding: 30px 40px;
+  overflow: hidden;
+  table-layout: fixed;
+}
+.modal-contentChooseEmp .heading{
+  padding: 30px 40px;
+  overflow: hidden;
+  table-layout: fixed;
+}
+
+  
+
+.modal-contentChooseEmp #list td {
+  font-size: 11.7px;
+  padding: 30px 40px;
+  overflow: hidden;
+
+}
+
+.modal-contentChooseEmp #list tbody tr {
+  cursor: pointer;
+}
+
+.modal-contentChooseEmp #list tbody tr:hover {
+  background-color: #AAABAD;
+}
+
+.modal-contentChooseEmp #list tr {
+  border-bottom: 1px solid #dddddd;
+}
+.modal-contentChooseEmp #list tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.modal-contentChooseEmp #list tr:last-of-type {
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.modal-contentChooseEmp table {
+  table-layout: fixed;
+}
+
+.modal-contentChooseEmp #list button{
+  font-size: 30px;
+  font-weight: bold;
+  margin: 15px;
+  padding: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+
+/*modal-contentChooseEmp*/
+
+.dropdown-content2 {
+  
+  position: relative;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content2 a {
+  color: black;
+  padding: 12px 1px;
+  text-decoration: none;
+  display: block;
+}
+.hide {
+  margin: 30px;
+  display: none;
+}
+#list button:hover + .dropdown-content2 {display: none; background-color: red;}
+
+.test:focus + .hide{display: block; background-color: red;}
+
+#list button:focus + .dropdown-content2 {
+  display: none;
+
+ 
+    outline: none;
+
+}
+
+
+
+
+
+.showLeft{
+  background-color: white !important;
+  text-shadow: none !important;
+  color:#fff !important;
+  padding:10px;
+  }
+
+  .icons li {
+  background: none repeat scroll 0 0 #fff;
+  height: 3px;
+  width: 3px;
+  line-height: 0;
+  list-style: none outside none;
+  margin-right: 15px;
+   margin-top: 3px;
+  vertical-align: top;
+  border-radius:50%;
+  pointer-events: none;
+  background-color: black;
+  }
+
+  .btn-left {
+  left: 0.4em;
+            }
+
+                .btn-right {
+                    right: 0.4em;
+                }
+
+                .btn-left, .btn-right {
+                    position: absolute;
+                    top: 0.24em;
+                }
+
+                .dropbtn {
+                    background-color: #4CAF50;
+                    position: fixed;
+                    color: white;
+                    font-size: 16px;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                .dropbtn:hover, .dropbtn:focus {
+                    background-color: #3e8e41;
+                }
+
+                .dropdown {
+                    position: absolute;
+                    display: inline-block;
+                    right: 0.4em;
+
+                }
+
+                .dropdown-content {
+                    display: none;
+                    position: relative;
+                    margin-top: 60px;
+                    background-color: #f9f9f9;
+                    min-width: 160px;
+                    overflow: auto;
+                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                    z-index: 1;
+                }
+
+                .dropdown-content a {
+                    color: black;
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                }
+
+                .dropdown a:hover {background-color: #f1f1f1}
+
+                .show {display:block;}
+
+.modalAddUser {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 930px; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modalAddUserEvent {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-contentAddUser {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 30%;
+  height: 70%;
+  color: black;
+}
+
+.choose_emp{
+  color: black;
+  cursor: pointer;
+  margin-top: -10px;
+}
+
+.choose_emp:hover{
+  color: blue;
+  
+}
+
+.modal-contentAddUser h1{
+  text-align: center;
+  margin-top: 10px;
+}
+.modal-contentAddUser h3{
+  text-align: center;
+  margin-top: 20px;
+}
+.topAddUser{
+  display: block;
+  overflow: hidden;
+}
+.topAddUser span{
+  float: right;
+}
+.topAddUser p{
+  font-size: 25px;
+  float: left;
+  font-weight: bold;
+}
+
+hr {
+  margin: 10px auto;
+  width: 100%;
+  color: grey;
+  margin-bottom: 25px;
+}
+.UserRegisterForm{
+  font-size: 13px;
+  height: 100%;
+
+}
+.UserRegisterForm form{
+  height: 100%;
+
+}
+
+.UserRegisterForm form label{
+  margin-bottom: 10px;
+  font-size: 10px;
+
+
+}
+
+
+.UserRegisterForm form input{
+  width: 100%;
+  padding:10px 0;
+  overflow: hidden;
+  margin-bottom: 25px;
+
+}
+
+.UserRegisterForm form #StartDateToTravelDiv{
+  float: left;
+  width: 45%;
+
+}
+
+.UserRegisterForm form #EndDateToTravelDiv{
+  float: right;
+  width: 45%;
+
+}
+.AddExistingEmp{
+
+}
+/*
+.UserRegisterForm form #StartDateToTravelLabel{
+  float: left;
+
+}
+.UserRegisterForm form #StartDateToTravel{
+  float: left;
+  width: 40%;
+  margin-left: -45px;
+
+}
+
+.UserRegisterForm form #EndDateToTravelLabel{
+  margin-top: -15px;
+  margin-left: -20%;
+  float: right;
+  width:35%;
+
+}
+
+.UserRegisterForm form #EndDateToTravel{
+  margin-top: -15px;
+  float: right;
+  width:40%;
+
+}
+
+*/
+
+.UserRegisterForm form #EventWarning{
+  display: none;/**/
+  color: #d64242;
+  font-weight: bold;
+  float: right;
+
+}
+
+.UserRegisterForm form #EmailWarning{
+  display: none;/**/
+  
+  color: #d64242;
+  font-weight: bold;
+  float: right;
+
+}
+
+
+
+/*Event*/
+.UserRegisterFormEvent{
+  font-size: 13px;
+  height: 100%;
+
+}
+.UserRegisterFormEvent form{
+  height: 100%;
+
+}
+
+.UserRegisterFormEvent form label{
+  margin-bottom: 10px;
+  font-size: 10px;
+
+
+}
+
+
+.UserRegisterFormEvent form input{
+  width: 100%;
+  padding:10px 0;
+  overflow: hidden;
+  margin-bottom: 25px;
+
+}
+
+.UserRegisterFormEvent form #StartDateToTravelDiv{
+  float: left;
+  width: 45%;
+
+}
+
+.UserRegisterFormEvent form #EndDateToTravelDiv{
+  float: right;
+  width: 45%;
+
+}
+/*
+.UserRegisterForm form #StartDateToTravelLabel{
+  float: left;
+
+}
+.UserRegisterForm form #StartDateToTravel{
+  float: left;
+  width: 40%;
+  margin-left: -45px;
+
+}
+
+.UserRegisterForm form #EndDateToTravelLabel{
+  margin-top: -15px;
+  margin-left: -20%;
+  float: right;
+  width:35%;
+
+}
+
+.UserRegisterForm form #EndDateToTravel{
+  margin-top: -15px;
+  float: right;
+  width:40%;
+
+}
+
+*/
+
+.UserRegisterFormEvent form #EventWarning{
+  display: none;/**/
+  color: #d64242;
+  font-weight: bold;
+  float: right;
+
+}
+
+.UserRegisterFormEvent form #EmailWarning{
+  display: none;/**/
+  
+  color: #d64242;
+  font-weight: bold;
+  float: right;
+
+}
+
+
+
+/*Event end*/
+
+
+
+
+
+
+.modal-contentAddUser #Submit{
+  margin-top:auto; 
+  
+  color: black;
+  text-decoration: none;
+  text-decoration: none;
+  padding: auto 50px;
+  display: block;
+  text-align: center;
+}
+
+#SubmitAddUser{
+  border: 1px solid #888;
+  color: black;
+  text-decoration: none;
+  margin: 5px;
+  padding: 10px 30px;
+  display: inline;  
+  background-color: white;
+  cursor: pointer;
+
+}
+#SubmitAddUser:hover{
+  background-color: black;
+  color: white;
+
+}
+#CompanyAlreadyExist{
+  margin-top: -100px;
+}
+
+
+
+/*Update*/
+
+.modalUpdateUser {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 930px; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-contentUpdateUser {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 30%;
+  height: 70%;
+  color: black;
+}
+
+
+
+.modal-contentUpdateUser h1{
+  text-align: center;
+  margin-top: 10px;
+}
+.modal-contentUpdateUser h3{
+  text-align: center;
+  margin-top: 20px;
+}
+.topUpdateUser{
+  display: block;
+  overflow: hidden;
+}
+.topUpdateUser span{
+  float: right;
+}
+.topUpdateUser p{
+  font-size: 25px;
+  float: left;
+  font-weight: bold;
+}
+
+hr {
+  margin: 10px auto;
+  width: 100%;
+  color: grey;
+  margin-bottom: 25px;
+}
+.UpdateUserRegisterForm{
+
+  font-size: 13px;
+
+}
+
+.UpdateUserRegisterForm form label{
+  margin-bottom: 10px;
+  font-size: 10px;
+
+
+
+}
+
+
+.UpdateUserRegisterForm form input{
+  width: 100%;
+  padding:10px 0;
+  overflow: hidden;
+  margin-bottom: 25px;
+
+}
+
+.UpdateUserRegisterForm form #StartDateToTravelDiv{
+  float: left;
+  width: 45%;
+
+}
+
+.UpdateUserRegisterForm form #EndDateToTravelDiv{
+  float: right;
+  width: 45%;
+
+}
+/*
+.UserRegisterForm form #StartDateToTravelLabel{
+  float: left;
+
+}
+.UserRegisterForm form #StartDateToTravel{
+  float: left;
+  width: 40%;
+  margin-left: -45px;
+
+}
+
+.UserRegisterForm form #EndDateToTravelLabel{
+  margin-top: -15px;
+  margin-left: -20%;
+  float: right;
+  width:35%;
+
+}
+
+.UserRegisterForm form #EndDateToTravel{
+  margin-top: -15px;
+  float: right;
+  width:40%;
+
+}
+
+*/
+
+.UpdateUserRegisterForm form #EventWarning{
+  display: none;/**/
+  color: #d64242;
+  font-weight: bold;
+  float: right;
+
+}
+
+.UpdateUserRegisterForm form #EmailWarning{
+  display: none;/**/
+  
+  color: #d64242;
+  font-weight: bold;
+  float: right;
+
+}
+
+.modal-contentUpdateUser #Submit{
+  margin-top:auto; 
+  
+  color: black;
+  text-decoration: none;
+  text-decoration: none;
+  padding: auto 50px;
+  display: block;
+  text-align: center;
+}
+
+#SubmitUpdateUser{
+  border: 1px solid #888;
+  color: black;
+  text-decoration: none;
+  margin: 5px;
+  padding: 10px 30px;
+  display: inline;  
+  background-color: white;
+  cursor: pointer;
+
+}
+#SubmitUpdateUser:hover{
+  background-color: black;
+  color: white;
+
+}
+#CompanyAlreadyExist{
+  margin-top: -100px;
+}
+
+
+
+/*Update end*/
+
+
+
+
+.modalLoading {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 15%; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-contentLoading {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 10%;
+  height: 15%;
+  color: black;
+  text-align: center;
+}
+
+
+
+/* loading Style #1 */
+.loading {
+  display: flex;
+  justify-content: center;
+}
+
+.loading--full-height {
+  align-items: center;
+  height: 80%;
+}
+
+.loading::after {
+  content: "";
+  width: 50px;
+  height: 50px;
+  border: 10px solid #dddddd;
+  border-top-color: black;
+  border-radius: 50%;
+  transform: rotate(0.16turn);
+  animation: loading 1s ease infinite;
+}
+
+@keyframes loading {
+  /* Safari support */
+  from {
+    transform: rotate(0turn);
+  }
+  
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+
+.modalSucessfullySubmit {
+  display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 15%; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-contentSucessfullySubmit {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 25%;
+  height: 45%;
+  color: black;
+  text-align: center;
+}
+
+.modal-contentSucessfullySubmit div {
+  background-color: #009688;
+  padding: 20px;
+  width: 90px;
+  height: 90px;
+  border-radius: 100px;
+  margin: 5% 30%;
+  margin-left: 35%;
+
+
+
+}
+.modal-contentSucessfullySubmit div span{
+  color: white;
+  font-size: 65px;
+  margin-top: -20px;
+  margin-left: -1.9%;
+  position: absolute;
+}
+
+.modal-contentSucessfullySubmit span{
+  font-weight: bold;
+
+}
+.modal-contentSucessfullySubmit button{
+  padding: 10px 80px;
+  margin: 30px 0 ;
+
+}
+
+
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 35%;
+  height: 33%;
+  color: black;
+}
+
+.modal-content h1{
+  text-align: center;
+  margin-top: 10px;
+}
+.modal-content h3{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.modal-content .ViewRemButtons{
+  margin-top:20px; 
+  color: black;
+  text-decoration: none;
+  text-decoration: none;
+  padding: 20px 50px;
+  display: block;
+  text-align: center;
+}
+
+
+#ViewProf, #Remove{
+  border: 1px solid #888;
+  color: black;
+  text-decoration: none;
+  margin: 5px;
+  padding: 10px 30px;
+  display: inline;  
+  background-color: white;
+  cursor: pointer;
+
+}
+#ViewProf:hover, #Remove:hover{
+  background-color: black;
+  color: white;
+
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+

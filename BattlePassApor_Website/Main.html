@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- <title>Sider Menu Bar CSS</title> -->
+    <link rel="stylesheet" href="Main-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+  </head>
+
+  <body>
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+    <header><img src="AdminPic.jpg" alt="Admin"> 
+      <br>
+      Admin</header>
+  <ul>
+<li class="active"><a href="#"><i class="fas fa-qrcode"></i>Dashboard</a></li>
+<li><a href="#"><i class="fas fa-stream"></i>Overview</a></li>
+<li><a href="#"><i class="far fa-question-circle"></i>About</a></li>
+<!--
+<li><a href="#"><i class="fas fa-link"></i>Shortcuts</a></li>
+<li><a href="#"><i class="fas fa-stream"></i>Overview</a></li>
+<li><a href="#"><i class="fas fa-calendar-week"></i>Events</a></li>
+<li><a href="#"><i class="far fa-question-circle"></i>About</a></li>
+<li><a href="#"><i class="fas fa-sliders-h"></i>Services</a></li>
+<li><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
+-->
+<script>
+
+   
+      $('li').click(function(){
+        $(this).addClass("active").siblings().removeClass("active");
+      });
+    </script>
+</ul>
+
+
+</div>
+
+<section>
+  <!--
+  <header class="TopHeader">
+        <div class="header">
+          <div class="image">
+            <img src="image/kisspng-vaporwave-aesthetics-color-aesthetics-5adc527a671c34.8772036415243884744224.png">
+            
+            <h1>MY WEBSITE</h1>
+          </div>
+
+          <div class="menu">
+            <nav>
+              <a class = "home"href="">Home</a>
+              <a href="">Services</a>
+              <a href="">Contact Us</a>
+              <a href="">About</a>
+            </nav>
+          </div>
+        </div>
+</header>
+-->
+  <div class="Top">
+    <header>Companies<em id="Total">total</em></header>
+    <input class = "SearchBar" id="search" type="text" placeholder="Search Company..." name="search">
+  </div>
+
+  <div class= "Adding">
+    <div>
+      <button id="AddUser" onClick="ShowModalAddUser()">Add User</button>
+      <div id="myModalAddUser" class="modalAddUser">
+
+        <!-- Modal content -->
+        <div class="modal-contentAddUser">
+          <div class="topAddUser">
+            <span class="close" id="closeAddUser">&times;</span>
+            <p>Add User</p>
+          </div>
+          <hr>
+          <div class="UserRegisterForm">
+            <form id="AddUserFrom">
+              <label for='name'>Full Name</label>
+              <br>
+              <input type="text" name="name" id="FullNameOwner" class="AddUserForm" placeholder="Owner's Name" required/>
+
+              <label for='company'>Company Name <span id="companyWarning">(already exist)</span></label>
+              <br>
+              <input type="text" name="company" id="CompanyName" class="AddUserForm" placeholder="Company Name" required>
+
+              <label for='Type' id="Typelable">Type</label>
+              <br>
+              <input type="text" name="Type" id="Type" class="AddUserForm" placeholder="Type of Business" required>
+
+              <label for='address'>Location</label>
+              <br>
+              <input type="text" name="address" id="CompanyLocation" class="AddUserForm" placeholder="Location" required>
+
+              <label for='email'>Email <span id="EmailWarning">(Invalid Email)</span></label>
+              <br>
+              <input type="text" name="email" id="CompanyEmailAddress" class="AddUserForm" placeholder="Email Adress" required>
+
+              <input class="ViewRemButtonsAddUser" id="SubmitAddUser" type="submit" value="Submit" onclick="SubmitValues()">
+
+              
+            </form>
+          </div>
+        </div>
+
+      </div>
+      <script>
+      function ShowModalAddUser(){
+        var closeAddUser = document.getElementById("closeAddUser");
+        var modal = document.getElementById("myModalAddUser");
+        modal.style.display = "block";
+        closeAddUser.onclick = function() {
+
+        modal.style.display = "none";
+          var spanCompanyName = document.getElementById("companyWarning");
+          var spanEmail = document.getElementById("EmailWarning");
+
+          spanCompanyName.style.display="none";
+          spanEmail.style.display="none";
+
+          var CompanyNameTextBox = document.getElementById("CompanyName");
+          var EmailTextBox = document.getElementById("CompanyEmailAddress");
+
+          CompanyNameTextBox.style.borderColor = "";
+          EmailTextBox.style.borderColor  = "";
+
+      }
+        /*
+        document.getElementById('FullNameOwner').style.borderColor =  "";
+  document.getElementById('CompanyName').style.borderColor =  "";
+  document.getElementById('Type').style.borderColor =  "";
+
+  document.getElementById('CompanyLocation').style.borderColor =  "";
+  document.getElementById('CompanyEmailAddress').style.borderColor =  "";
+*/
+  var AddUserFromID = document.getElementById("AddUserFrom");
+  var inputs = AddUserFromID.getElementsByTagName('input');
+    for (var i = 0; i < inputs.length; i++) {
+      //inputs[i].style.borderBottomColor =  "";
+      if (inputs[i].value != "Submit"){
+
+        inputs[i].value="";
+
+      }
+      
+      
+    }
+
+
+      }
+
+      
+
+          
+      </script>
+
+
+    </div>
+  </div>
+
+
+
+
+  <div class="data">
+    <div class="tableM">
+    <table id="list">
+        <!--headings-->
+        <thead>
+          <tr class= "heading">
+
+            <th>Company</th>
+            <th>Company Head</th>
+            <th>Last Activity</th>
+            <!--th>Total Employee</th>-->
+          </tr>
+        </thead>
+
+
+        <tbody id="listR">
+
+
+
+        </tbody>
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+
+    <span class="close" id="closemyModal">&times;</span>
+
+    <h1 id="CopanyNameDis"></h1>
+    <h3 id="name"></h3>
+    <div class="ViewRemButtons">
+      <form action="ViewProfile.html">
+      <!--<input id="ViewProf" type="submit" value="View profile" onclick="passval()"/>-->
+      <input id="Remove" type="button" value="Remove" onclick="Delete()"/> 
+      </form>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="myModalLoading" class="modalLoading">
+
+  <!-- Modal content -->
+  <div class="modal-contentLoading">
+    <div class="loading loading--full-height"></div>
+    <span>Submitting...</span>
+
+  
+
+    </div>
+  </div>
+
+
+  <div id="myModalSucessfullySubmit" class="modalSucessfullySubmit">
+
+  <!-- Modal content -->
+  <div class="modal-contentSucessfullySubmit">
+    <div><span>&#x2713;</span></div>
+    <span>Submitted Successfully</span>
+    <br>
+    <button onclick="okClick()">OK</button>
+    
+
+
+  
+
+    </div>
+  </div>
+
+
+        <script>
+
+        function addRowHandlers() {
+          var _Name = document.getElementById('name');
+          var _CopanyNameDis = document.getElementById('CopanyNameDis');
+          var span = document.getElementsByClassName("close")[0];
+          var modal = document.getElementById("myModal");
+          var closemyModal = document.getElementById("closemyModal");
+    var table = document.getElementById("listR");
+    var rows = table.getElementsByTagName("tr");
+    console.log("click "+rows);
+    for (i = 0; i < rows.length; i++) {
+      console.log("click");
+        var currentRow = table.rows[i];
+        var createClickHandler = 
+            function(row) 
+            {
+                return function() { 
+
+                                        var CopanyNameDis = row.getElementsByTagName("td")[0];
+                                        var cell = row.getElementsByTagName("td")[1];
+                                        console.log(cell);
+                                        var name_ = cell.innerHTML;
+                                        var CopanyNameDis_ = CopanyNameDis.innerHTML;
+                                        modal.style.display = "block";
+                                        _Name.innerHTML = name_;
+                                        _CopanyNameDis.innerHTML=CopanyNameDis_;
+
+                                        //alert("id:" + id);
+                                 };
+            };
+
+        currentRow.onclick = createClickHandler(currentRow);
+    }
+    closemyModal.onclick = function() {
+  modal.style.display = "none";
+
+
+}
+
+}
+function passval(){
+  var IDnum = document.getElementById('IDnumber').innerHTML;
+  console.log("hello"+IDnum);
+  localStorage.setItem("idvalue",IDnum);
+  return false;
+  
+}
+
+    
+    </script>
+        
+   
+
+
+
+
+    </table>
+    
+
+
+
+
+    
+
+    </div>
+
+
+    <!-- <ul id="list">
+
+    </ul>-->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+
+    <script id="MainScript">
+       // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyAtffua9t3RTkl9u_79XHq4jOneToWWJt4",
+        authDomain: "qr-code-generator-8320b.firebaseapp.com",
+        databaseURL: "https://qr-code-generator-8320b.firebaseio.com",
+        projectId: "qr-code-generator-8320b",
+        storageBucket: "qr-code-generator-8320b.appspot.com",
+        messagingSenderId: "13212405929",
+        appId: "1:13212405929:web:1b5f752dbe85a3198d19b8",
+        measurementId: "G-MBZ13F7ZNN"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+
+
+
+      readDataFromDatabase();
+
+      var counter=0;
+
+
+      function addItemsToList(Name,Company,LastActivity,TotalEmployee){
+        /*
+
+        var ul=document.getElementById('listR');
+        var count=document.getElementById('Total');
+        var header = document.createElement('h2');
+
+        var _button = document. createElement("button")
+
+        var row1 = document.createElement('tr');
+
+        var _Id = document.createElement('td');
+        var _Fname = document.createElement('td');
+        var _AppST = document.createElement('td');
+        var _JobPos = document.createElement('td');
+        var _Email = document.createElement('td');
+        var _HAddress = document.createElement('td');
+        
+        // var _copanyIDnumber = document.createElement('li');
+
+        //header.Username
+
+        header.innerHTML = 'Employee-'+(++counter);
+
+        _Id.innerHTML = id;
+        _Fname.innerHTML = Fname+' '+MI+' '+Lname;
+        _AppST.innerHTML =Appstats;
+        
+        
+        _JobPos.innerHTML = JobPos;
+        _Email.innerHTML = Email;
+        _HAddress.innerHTML = HUnit+', '+HCity+', '+HProv;
+        //_button.innerHTML = '&#8942;'; U+1F534
+
+        
+
+        count.innerHTML = counter+' total';
+        
+
+        //ul.appendChild(header);
+        row1.appendChild(_Fname);
+        row1.appendChild(_Id);
+        row1.appendChild(_JobPos);
+        row1.appendChild(_Email);
+        row1.appendChild(_HAddress);
+        row1.appendChild(_AppST);
+
+
+        ul.appendChild(row1);
+        //ul.appendChild(_copanyIDnumber);
+        */
+
+        var count=document.getElementById('Total');
+        var ul=document.getElementById('listR');
+        var count=document.getElementById('Total');
+
+
+        var _Name = document.createElement('td');
+        var _Company = document.createElement('td');
+        var _LastActivity = document.createElement('td');
+        var _TotalEmployee = document.createElement('td');
+
+
+        var row = document.createElement('tr');
+
+        //header.innerHTML = 'Employee-'+(++counter);
+
+        _Name.innerHTML = Name;
+        _Company.innerHTML=Company;
+        _LastActivity.innerHTML=LastActivity;
+        _TotalEmployee.innerHTML=TotalEmployee;
+
+        row.appendChild(_Company);
+        row.appendChild(_Name);
+        
+        row.appendChild(_LastActivity);
+        //row.appendChild(_TotalEmployee);
+
+        count.innerHTML = ++counter+' total';
+        //readDataFromDatabase();
+
+        ul.appendChild(row);
+
+      }
+
+
+      
+      function readDataFromDatabase(){
+      var database = firebase.database().ref("Companies");
+      //console.log(" ID number |      full name      | Application status");
+
+    database.once("value",function(snapshot){
+            var data = snapshot.val();
+
+            for(let i in data){
+              //Name,Company,LastActivity,TotalEmployee,Status
+              addItemsToList(data[i].FullNameOwner,data[i].CompanyName,data[i].LastActivity,data[i].TotalEmployee);
+              //console.log(data[i].idnumber+" | "+data[i].firstName+" "+data[i].midIn+" "+data[i].lastName+" | "+data[i].applicationStatus);
+            }
+
+window.onload = addRowHandlers();
+            const searchInput = document.getElementById("search");
+            const rows = document.querySelectorAll("tbody tr");
+            console.log(rows);
+            searchInput.addEventListener("keyup", function (event) {
+              const q = event.target.value.toLowerCase();
+              rows.forEach((row) => {
+                row.querySelector("td").textContent.toLowerCase().startsWith(q)
+                  ? (row.style.display = "table-row")
+                  : (row.style.display = "none");
+              });
+            });
+    });
+}
+
+function CheckField(){
+
+
+  var FieldEmpty = false;
+  var AddUserFromID = document.getElementById("AddUserFrom");
+  var inputs = AddUserFromID.getElementsByTagName('input');
+  
+
+  
+    for (var i = 0; i < inputs.length; i++) {
+        // only validate the inputs that have the required attribute
+        //inputs[i].style.borderBottomColor =  "";
+        if(inputs[i].hasAttribute("required")){
+            if(inputs[i].value == ""){
+                FieldEmpty = true;
+                //return false;
+                ;
+            }
+        }
+        //inputs[i].style.borderBottomColor =  "";
+    }
+    
+    //return true;
+    console.log("FieldEmpty jijijhh"+FieldEmpty);
+    if(FieldEmpty == false){
+      SubmitValues();
+    }
+
+
+}
+
+function SubmitValues(){
+  /*
+  SubmitAddUser.addEventListener("click",function(event){
+
+    event.preventDefault();
+  })
+  */
+  //console.log(document.getElementById('FullNameOwner').value);
+  //event.preventDefault();
+  var modal = document.getElementById("myModalLoading");
+  var modalSucessfullySubmit = document.getElementById("myModalSucessfullySubmit");
+
+  var FullNameOwner =document.getElementById('FullNameOwner').value;
+  var CompanyName =document.getElementById('CompanyName').value;
+  var Type =document.getElementById('Type').value;
+  var CompanyLocation =document.getElementById('CompanyLocation').value;
+  var CompanyEmailAddress =document.getElementById('CompanyEmailAddress').value;
+  var AlreadyInTheList = false;
+  var noData=true;
+  //CheckField();
+  var form = document.getElementById("AddUserFrom");
+
+  var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+  var spanCompanyName = document.getElementById("companyWarning");
+  var spanEmail = document.getElementById("EmailWarning");
+
+  spanCompanyName.style.display="none";
+  spanEmail.style.display="none";
+
+  var CompanyNameTextBox = document.getElementById("CompanyName");
+  var EmailTextBox = document.getElementById("CompanyEmailAddress");
+
+  CompanyNameTextBox.style.borderColor = "";
+  EmailTextBox.style.borderColor  = "";
+
+  console.log(mailformat.test(CompanyEmailAddress));
+  /*
+  if (mailformat.test(CompanyEmailAddress)){
+    console.log("its a mail true");
+    return true;
+
+  }
+  */
+  
+  
+
+  console.log(CompanyName);
+  var database = firebase.database().ref("Companies");
+  console.log("Check "+database);
+      //console.log(" ID number |      full name      | Application status");
+
+    database.once("value",function(snapshot){
+            var data = snapshot.val();
+
+            for(let i in data){
+              if (data[i].CompanyName == CompanyName) {
+                AlreadyInTheList = true;
+                spanCompanyName.style.display="block";
+                CompanyNameTextBox.style.borderColor = "#d64242";
+                function handleForm(event) { event.preventDefault(); } 
+                form.addEventListener('submit', handleForm);
+                modal.style.display = "none";
+              };
+              //Name,Company,LastActivity,TotalEmployee,Status
+              //addItemsToList(data[i].FullNameOwner,data[i].CompanyName,data[i].LastActivity,data[i].TotalEmployee);
+              //console.log(data[i].idnumber+" | "+data[i].firstName+" "+data[i].midIn+" "+data[i].lastName+" | "+data[i].applicationStatus);
+            }
+
+            console.log("dada AlreadyInTheList "+AlreadyInTheList);
+
+            if(AlreadyInTheList == false){
+                var FieldEmpty = false;
+                var AddUserFromID = document.getElementById("AddUserFrom");
+                var inputs = AddUserFromID.getElementsByTagName('input');
+                
+
+                
+                  for (var i = 0; i < inputs.length; i++) {
+                      // only validate the inputs that have the required attribute
+                      //inputs[i].style.borderBottomColor =  "";
+                      if(inputs[i].hasAttribute("required")){
+                          if(inputs[i].value == ""){
+                              FieldEmpty = true;
+                              modal.style.display = "none";
+                              //return false;
+                              ;
+                          }
+                      }
+                      //inputs[i].style.borderBottomColor =  "";
+                  }
+
+              console.log("FieldEmpty sasa "+FieldEmpty+ " AlreadyInTheList "+AlreadyInTheList);
+              if(FieldEmpty == false ){
+                modal.style.display = "block";
+                if (mailformat.test(CompanyEmailAddress)==true){
+
+                      console.log("heeey dsd"+AlreadyInTheList)
+                      firebase.database().ref('Companies/'+CompanyName).set({
+                    FullNameOwner:FullNameOwner,
+                    CompanyName: CompanyName,
+                    Type: Type,
+                    CompanyLocation: CompanyLocation,
+                    CompanyEmailAddress: CompanyEmailAddress,
+                    LastActivity:'0/0/0',
+                    TotalEmployee:'0',
+                    Status:'',
+                    password: 'company'+(counter+1)
+
+
+
+                  });
+                      Email.send({
+                      Host : "smtp.gmail.com",
+                      Username : "AporBattlePass@gmail.com",
+                      Password : "vkzrxvvvzgskqdcq",
+                      To : CompanyEmailAddress,
+                      From : "AporBattlePass@gmail.com",
+                      Subject : "Apor Battle Pass Company Head User Credential",
+      Body : "Hello good day! <br/> This is AporBattlePass Admin, we sucessfully registered your account. <br/> Below are your account details. <br/> <br/> Username: "+ CompanyEmailAddress+" <br/> Password: company"+(counter+1)+" <br/> (You can change your password once you're login) <br/> <br/> Thank you for trusting us. " 
+
+                  }).then(
+                    message => modalSucessfullySubmit.style.display = "block"
+                    
+                    //location.reload()
+                  );
+                }
+                else{
+
+                EmailTextBox.style.borderColor  = "#d64242";
+
+                spanEmail.style.display="block";
+                  modal.style.display = "none";
+
+                }
+                
+                
+              }
+              else{
+                  modal.style.display = "none";
+
+                }
+              
+              
+          //console.log("false");
+          //location.reload();
+          
+
+            }
+            //console.log("heeey "+FullNameOwner ); 
+    });
+
+    function handleForm(event) { event.preventDefault(); } 
+    form.addEventListener('submit', handleForm);
+    
+    /*
+    else{
+      document.getElementById('FullNameOwner').innerHTML = "AlreadyInTheList";
+      window.history.replaceState( null, null, window.location.href );
+      console.log("Trueee naa");
+
+    }
+    */
+
+  
+
+         
+      }
+
+  function Delete(){
+    var CopanyNameDis =document.getElementById('CopanyNameDis').innerHTML;
+
+
+
+    var database = firebase.database().ref("Employees");
+    //var EventNameView =document.getElementById('EventNameView').innerHTML;
+      //document.getElementById("Company_Head_Name").innerHTML= localStorage.getItem("CompanyHeadName");
+      document.getElementById("myModalLoading").style.display = "block";
+
+    database.once("value",function(snapshot){
+            var data = snapshot.val();
+            var countDel = 0;
+            var sign = false; 
+
+            for(let i in data){
+
+              if(CopanyNameDis==data[i].CompanyName){
+                firebase.database().ref('Employees/'+data[i].EmpIDNumber).remove();
+
+              }
+            
+
+
+            }
+
+          firebase.database().ref('Companies/'+ CopanyNameDis).remove();
+          
+          firebase.database().ref('Events/'+ CopanyNameDis).remove();
+          setTimeout(function(){ document.getElementById("myModalLoading").style.display = "none"; location.reload()}, 3000);
+
+          //location.reload();
+
+          
+
+          });
+
+
+    //firebase.database().ref('Companies/'+CopanyNameDis).remove();
+    //location.reload();
+    console.log(CopanyNameDis);
+
+  }
+
+
+  function okClick(){
+    location.reload();
+    
+  }
+
+
+
+
+
+
+
+      
+      
+      
+     
+
+
+
+    </script>
+
+
+    
+  </div>
+
+  
+
+
+  
+</section>
+
+
+
+
+  </body>
+  
+    
+  <script>
+  function changeLanguage(language) {
+                    var element = document.getElementById("url");
+                    element.value = language;
+                    element.innerHTML = language;
+                }
+
+                function showDropdown() {
+                    document.getElementById("myDropdown").classList.toggle("show");
+
+                    console.log("hello");
+                }
+
+                // Close the dropdown if the user clicks outside of it
+                window.onclick = function(event) {
+                    if (!event.target.matches('.dropbtn')) {
+                        var dropdowns = document.getElementsByClassName("dropdown-content");
+                        var i;
+                        for (i = 0; i < dropdowns.length; i++) {
+                            var openDropdown = dropdowns[i];
+                            if (openDropdown.classList.contains('show')) {
+                                openDropdown.classList.remove('show');
+                            }
+                        }
+                    }
+                }
+ 
+  </script>
+
+ 
+  
+</html>
+
